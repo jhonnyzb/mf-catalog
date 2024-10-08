@@ -1,0 +1,45 @@
+
+<div class="servicePublicPay">
+    <div class="servicePublicPay__containImg">
+        <img class="servicePublicPay__imgBig" [src]="imgSelect" (error)="onImageError()" alt="premio">
+        <div class="servicePublicPay__containImgSmall">
+            <div *ngFor="let item of listImgSmall" class="servicePublicPay__itemImgSmall"
+                [ngClass]="{'servicePublicPay__itemImgSmall--select': item.active, 'servicePublicPay__itemImgSmall--overlay': !item.active }"
+                (click)="onChangeImage(item)">
+                <img class="servicePublicPay__imgSmall" (error)="onImageErrorSmall(item)" [src]="item.patch" alt="premio">
+            </div>
+        </div>
+    </div>
+    <div class="servicePublicPay__separator"></div>
+    <div class="servicePublicPay__containInfo">
+        <span class="bold-24 primary">{{ payment.ShortName }}</span>
+        <div class="servicePublicPay__text1">
+            <span class="bold-16 primary">Servicios</span>
+        </div>
+        <div class="servicePublicPay__containBussines">
+            <span class="bold-12 servicePublicPay__textBussines">Empresa o servicio</span>
+            <span class="regular-16 primary">{{payment.CompanyOrProductName}}</span>
+        </div>
+        <div class="servicePublicPay__containBussines">
+            <span class="bold-12 servicePublicPay__textBussines">Referencia de pago</span>
+            <span class="regular-16 primary">{{payment.PaymentReference}}</span>
+        </div>
+        <div class="servicePublicPay__containBussines">
+            <span class="bold-12 servicePublicPay__textBussines">Valor servicio</span>
+            <span class="regular-16 primary">${{payment.Cost | number:'1.0-0'}}</span>
+        </div>
+        <div class="servicePublicPay__containBussines">
+            <span class="bold-12 servicePublicPay__textBussines">Puntos a redimir</span>
+            <span class="regular-16 primary">{{payment.Points | number:'1.0-0'}}</span>
+        </div>
+        <div class="servicePublicPay__textInfo">
+            <span class="regular-12 primary">* Recuerda que al presionar el botón “pagar” solo harás la redención del servicio y no de los productos dentro del carrito.</span>
+        </div>
+
+        <div class="servicePublicPay__containBtn">
+            <div class="servicePublicPay__btnContinue" (click)="onSendChange()">
+                <span class="bold-16 primary">Pagar</span>
+            </div>
+        </div>
+    </div>
+</div>

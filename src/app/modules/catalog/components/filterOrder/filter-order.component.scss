@@ -1,0 +1,34 @@
+.products{
+ 
+  &__filtersOrderText1 {
+    margin-left: 16px;
+  }
+
+  &__filtersOrderText2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 16px;
+    margin-right: 16px;
+    cursor: pointer;
+  }
+
+  &__icon {
+    cursor: pointer;
+  }
+
+  &__filtersOrderDivide {
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__orderContain{
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+}

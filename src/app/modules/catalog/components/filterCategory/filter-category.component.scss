@@ -1,0 +1,141 @@
+.filterCategory {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+  &__points {
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    margin-bottom: -16px;
+  }
+
+  &__title {
+    margin-left: 16px;
+  }
+
+  &__divider {
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__category {
+    height: 65%;
+    margin-top: 16px;
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    margin-right: 16px;
+    margin-left: 16px;
+    margin-bottom: -8px;
+
+    &--margin-top {
+      margin-top: 10px;
+    }
+
+    &--color {
+      color: var(--ngx-valepro-color-secondary) !important;
+    }
+  }
+
+  &__categoryList {
+    height: 335px;
+    margin-top: 10px;
+    margin-left: 32px;
+    margin-right: 32px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #F4F4F466;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #1C1C1CCC;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+
+  &__categoryItem {
+    display: flex;
+    align-items: center;
+    height: 40px;
+  }
+
+  &__customCheckbox {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border: 2px solid var(--ngx-valepro-color-secondary);
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 5px;
+      width: 4px;
+      height: 9px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+    }
+  }
+
+  &__checkboxLabel {
+    cursor: pointer;
+    margin-left: 24px;
+    vertical-align: middle;
+  }
+
+  &__inputCheckbox {
+    display: none;
+
+    &:checked+.filterCategory__customCheckbox {
+      background-color: var(--ngx-valepro-color-secondary);
+      border-color: var(--ngx-valepro-color-secondary);
+    }
+
+    &:checked+.filterCategory__customCheckbox::after {
+      opacity: 1;
+    }
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  .filterCategory {
+
+    &__category {
+      margin-top: 18px;
+    }
+
+    &__categoryList {
+      height: unset;
+      max-height: 250px;
+    }
+
+    &__points {
+      margin-bottom: unset;
+    }
+
+  }
+}

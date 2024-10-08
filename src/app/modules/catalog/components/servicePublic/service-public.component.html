@@ -1,0 +1,10 @@
+
+<div *ngIf="step === 1">
+    <step1 (changeStep)="onChangeStep($event)"></step1>
+</div>
+<div  *ngIf="step === 2">
+    <step2 (changeStep)="onChangeStep($event)" [payment]="payment" ></step2>
+</div>
+<div  *ngIf="step ===3">
+    <step3 [paymentConfirm]="paymentConfirm"></step3>
+</div>

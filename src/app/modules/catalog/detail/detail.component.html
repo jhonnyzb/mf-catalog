@@ -1,0 +1,84 @@
+<div class="detail">
+  <div class="detail__breadcrumb">
+    <xng-breadcrumb [separator]="iconTemplate" class="letra-miga-pan regular-12 primary mt-1">
+      <ng-container *xngBreadcrumbItem="let breadcrumb; let last = last" >
+        <ng-container *ngIf="!last">{{ breadcrumb }}</ng-container>
+        <ng-container *ngIf="last">
+          <span class="bold-12">{{ breadcrumb }}</span>
+        </ng-container>
+      </ng-container>
+    </xng-breadcrumb>
+  </div>
+  <ng-template #iconTemplate>
+    <mat-icon>chevron_right</mat-icon>
+  </ng-template>
+
+  <div *ngIf="!isServicePublic">
+    <div class="detail__container">
+      <div class="detail__images">
+        <img class="detail__imgMain" (error)="onImageError()" [src]="imgSelect" alt="premio">
+        <div class="detail__containImgSmall">
+          <div *ngFor="let item of imgSmallist" class="detail__itemImgSmall"
+            [ngClass]="{'detail__itemImgSmall--select': item.active, 'detail__itemImgSmall--overlay': !item.active }"
+            (click)="onChangeImage(item)">
+            <img class="detail__imgSmall" (error)="onImageErrorSmall(item)" [src]="item.patch" alt="premio">
+          </div>
+        </div>
+      </div>
+      <div class="detail__separator"></div>
+      <div class="detail__info">
+        <div>
+          <span class="bold-24 primary detail__break-text">{{ product.ShortName }}</span>
+          <div class="detail__marginT10">
+            <span class="regular-24 primary detail__marginR5">{{ product.Points | number:'1.0-0' }}</span><span
+              class="regular-14 primary">Puntos</span>
+          </div>
+          <div class="detail__amount detail__marginT10">
+            <span class="regular-14 primary detail__marginR5">Cantidad:</span>
+            <mat-icon class="detail__minus"
+              [ngClass]="{'detail__minus--active': counter !== 1, 'detail__minus--inactive': counter === 1 }"
+              (click)="decrement()">remove
+            </mat-icon>
+            <span class="bold-16 primary detail__counter">{{ counter }}</span>
+            <mat-icon class="detail__add detail__add--active" (click)="increment()">add</mat-icon>
+          </div>
+
+          <div class="detail__description detail__marginT10">
+            <span class="bold-14 primary">Descripción:</span>
+            <div class="detail__descriptionText">
+              <span class="regular-12 primary detail__break-text">{{ product.Description }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail__buttons">
+          <button *ngIf="product.ProductClass !== 4" type="button" (click)="onDialogProduct()"
+            class="detail__btn detail__btn--state1 bold-16">Confirma tus datos
+          </button>
+          <button [disabled]="!isConfirm" *ngIf="product.ProductClass !== 4" type="button" (click)="onAddCart()"
+            class="detail__btn detail__marginT10 bold-16"
+            [ngClass]="{'detail__btn--state2': !isConfirm, 'detail__btn--state3': isConfirm }">
+            Agregar al carrito
+          </button>
+          <button *ngIf="product.ProductClass === 4" type="button" (click)="onAddCart()"
+            class="detail__btn  detail__btn--state3 detail__btn--space bold-16">
+            Agregar al carrito
+          </button>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="detail__bar">
+      <span class="bold-16 primary">Te podría interesar</span>
+    </div>
+    <app-featured-products></app-featured-products>
+    <br>
+  </div>
+
+  <div *ngIf="isServicePublic">
+    <service-public></service-public>
+  </div>
+</div>
+<app-toast [isShow]="showToast"></app-toast>

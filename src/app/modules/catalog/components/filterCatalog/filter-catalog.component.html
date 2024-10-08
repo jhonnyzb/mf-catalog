@@ -1,0 +1,31 @@
+<div class="filterCatalogs" (click)="onfilterCatalogDinamic()">
+    <div class="filterCatalogs__catalogsText">
+        <span class="regular-16 primary">Conoce nuestros catálogos especiales</span>
+    </div>
+    <div class="filterCatalogs__catalogsIcon">
+        <mat-icon class="filterCatalogs__icon">keyboard_arrow_down</mat-icon>
+    </div>
+</div>
+<div *ngIf="isfilterCatalogDinamic" class="filterCatalogs__catalogDinamic">
+
+    <div *ngFor="let catalog of catalogsList" class="filterCatalogs__catalogDinamicContain">
+        <div class="filterCatalogs__containCheckbox">
+            <input type="checkbox" [id]="catalog.CatalogueId" [checked]="catalog.Checked" (change)="onCheckboxChange($event, catalog)" class="filterCatalogs__inputCheckbox">
+            <label [for]="catalog.CatalogueId" class="filterCatalogs__customCheckbox">{{''}}</label>
+        </div>
+        <div class="filterCatalogs__catalogDinamicText">
+            <span class="primary bold-16 filterCatalogs__date">{{catalog.Name}}</span>
+            <span class="primary regular-12">Válido hasta el {{formateDate(catalog.DateFinal)}}</span>
+        </div>
+    </div>
+    <div class="filterCatalogs__containCheckall">
+        <div class="filterCatalogs__containCheckbox">
+            <input type="checkbox" id="allProducts7778" [checked]="isChekedAll" (change)="onCheckboxChange($event, null)" class="filterCatalogs__inputCheckbox">
+            <label for="allProducts7778" class="filterCatalogs__customCheckbox">{{''}}</label>
+        </div>
+        <div>
+            <span class="primary bold-16">Todos los productos</span>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,69 @@
+.modal-confirma-borrar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-flow: row;
+  margin-top: 2em;
+  padding: 0;
+
+  ngx-ui-buttons {
+    margin: 0 5px;
+    max-width: 265px;
+  }
+}
+
+.info {
+  margin-bottom: 3em;
+
+  img {
+    width: 100%;
+    max-width: 120px;
+  }
+}
+
+
+.icon-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+
+.container-dialog-custom {
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+
+
+@media (max-width: 768px) {
+  .regular-18 {
+    font-size: 15px;
+  }
+
+  .regular-13 {
+    font-size: 14px !important;
+  }
+
+
+}
+
+
+//Tablet
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+  .container-dialog-custom {
+    padding: 2rem 8rem;
+  }
+}
+
+//Web
+
+@media screen and (min-width: 1024px) {
+  .container-dialog-custom {
+    padding: 2rem 8rem;
+    max-width: 720px;
+  }
+}

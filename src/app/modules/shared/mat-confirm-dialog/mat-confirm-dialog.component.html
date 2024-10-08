@@ -1,0 +1,19 @@
+<div class="container-dialog-custom">
+  <em class="icon-close" (click)="closeDialog()"></em>
+  <div class="info text-center">
+    <img [src]="dialogIcon" alt="">
+  </div>
+
+  <div class="container-fluid regular-18 primario text-center block">
+    {{data.message}}
+  </div>
+
+  <div class="modal-confirma-borrar" mat-dialog-actions>
+    <button fooButton *ngIf="checkRouteUrl()" (click)="closeDialog()" >
+      <span class="regular-18 primario">Cancelar</span>
+    </button>
+    <button fooButton (click)="confirmado()"> <span
+        class="regular-18 primario">{{confirmText}}</span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="productList">
+  <div *ngIf="filtersSelect.length > 0" class="productList__filterSelect">
+    <div *ngFor="let item of filtersSelect" class="productList__filter">
+      <span class="bold-12 primary productList__filterText productList__filterText--mRight">{{ item.Name }}</span>
+      <span class="bold-12 primary" (click)="removeFilters(item)">X</span>
+    </div>
+  </div>
+  <div class="productList__grid">
+    <div *ngFor="let item of products" class="productList__item">
+      <div class="productList__containImg" (click)="goToDetail(item.ProductId)">
+        <img class="productList__img" (error)="onImageError(item)" [src]="item.ImagePath"
+          alt="producto">
+      </div>
+      <div class="productList__info">
+        <div class="productList__text1">
+          <span class="bold-12 productList__textInfo primary">{{ item.Name }}</span>
+        </div>
+        <div class="productList__pointCart">
+          <div class="productList__points">
+            <span class="regular-16 productList__textInfo primary">{{ item.Points | number:'1.0-0'}} puntos</span>
+          </div>
+          <div class="productList__cart" (click)="onClikcCart(item.ProductId)">
+            <mat-icon class="productList__iconCart">shopping_cart</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

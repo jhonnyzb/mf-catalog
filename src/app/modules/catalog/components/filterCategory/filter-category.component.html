@@ -1,0 +1,22 @@
+<div class="filterCategory__points">
+    <span class="bold-16 primary filterCategory__title">Puntos</span>
+    <mat-form-field class="filterCategory__input filterCategory__input--margin-top">
+        <mat-label class="filterCategory__input--color">Mínimo de puntos</mat-label>
+        <input class="filterCategory__input--color" [(ngModel)]="minimun" name="min" matInput  (ngModelChange)="onMinimunChange($event)" (keydown)="preventNonNumeric($event)">
+    </mat-form-field>
+    <mat-form-field class="filterCategory__input">
+        <mat-label class="filterCategory__input--color">Máximo de puntos</mat-label>
+        <input class="filterCategory__input--color" [(ngModel)]="maximun" name="max" matInput  (ngModelChange)="onMaximunChange($event)" (keydown)="preventNonNumeric($event)">
+    </mat-form-field>
+</div>
+<hr class="filterCategory__divider">
+<div class="filterCategory__category">
+    <span class="bold-16 primary filterCategory__title">Categorías</span>
+    <div class="filterCategory__categoryList">
+        <div *ngFor="let item of categories; let i = index" class="filterCategory__categoryItem">
+            <input type="checkbox" (change)="onCheckboxChange($event, item)" [checked]="item.Checked"  class="filterCategory__inputCheckbox" [id]="platform + item.CategoryId">
+            <label [for]="platform + item.CategoryId" class="filterCategory__customCheckbox">{{''}}</label>
+            <label [for]="platform + item.CategoryId" class="filterCategory__checkboxLabel regular-16 primary">{{ item.Name }}</label>
+        </div>
+    </div>
+</div>

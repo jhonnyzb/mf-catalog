@@ -1,0 +1,14 @@
+<div class="error-services">
+  <div class="error-services__close">
+    <mat-icon class="error-services__iconClose" (click)="closeDialog()">close</mat-icon>
+  </div>
+  <div class="error-services__main">
+    <img width="120" height="120" src="../../../../assets/img/Icon-material-error.svg" alt="error">
+    <div class="error-services__message">
+      <span class="regular-24 primary">{{data.message}}</span>
+    </div>
+    <div class="bold-16 primary error-services__btn-send" (click)="reSend()">
+      {{data.textBtnConfirm}}
+    </div>
+  </div>
+</div>

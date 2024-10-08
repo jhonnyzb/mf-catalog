@@ -1,0 +1,43 @@
+<div class="cart-confirm__grid">
+  <div class="cart-confirm__item">
+    <div class="cart-confirm__contain-img">
+      <img (error)="onImageError()" [src]="imgProduct" alt="premio">
+    </div>
+  </div>
+  <div class="cart-confirm__item cart-confirm__item--mobile">
+    <div class="cart-confirm__contain-descripcion">
+      <mat-icon class="cart-confirm__icheck">check</mat-icon>
+      <div class="cart-confirm__contain-textcart">
+        <span class="bold-16 primary">Agregaste a tu carrito</span>
+        <span class="regular-16 primary cart-confirm__break-word">{{ product.ShortName }}</span>
+      </div>
+    </div>
+    <div class="cart-confirm__contain-btnmobile">
+      <button class="cart-confirm__btn-car">
+        <span class="bold-16 primary" (click)="onRedemtion()">Ver carrito</span>  
+      </button>
+    </div>
+  </div>
+  <div class="cart-confirm__item cart-confirm__desktop cart-confirm__item--space">
+    <div>
+      <div>
+        <span class="regular-24 primary">{{ product.Points | number:'1.0-0' }}</span><span class="regular-14 primary cart-confirm__spacePoints">Puntos</span>
+      </div>
+      <span class="regular-12 primary">{{ product.ProductClassAuxiliaryMessage }}</span>
+    </div>
+  </div>
+  <div class="cart-confirm__item cart-confirm__desktop">
+    <div class="cart-confirm__contain-btndesk">
+      <button class="cart-confirm__btn-car bold-16 primary" (click)="onRedemtion()">Ver carrito</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="cart-confirm__bar">
+  <span class="bold-16 primary">Artículos destacados</span>
+</div>
+<app-featured-products></app-featured-products>
+<div class="cart-confirm__go-catalog">
+  <button class="cart-confirm__btn-car primary bold-16" (click)="goCatalog()">Ver catálogo</button>
+</div>

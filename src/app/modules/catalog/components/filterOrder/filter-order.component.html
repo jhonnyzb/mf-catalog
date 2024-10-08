@@ -1,0 +1,12 @@
+<div class="products__orderContain">
+    <span class="bold-16 primary products__filtersOrderText1">Ordenar por puntos</span>
+    <div class="products__filtersOrderText2" (click)="changeOrderAsc(true)">
+        <span class="regular-16 primary">De menor a mayor</span>
+        <mat-icon  *ngIf="asc" class="products__icon">check</mat-icon>
+    </div>
+    <hr class="products__filtersOrderDivide">
+    <div class="products__filtersOrderText2" (click)="changeOrderDes(true)">
+        <span class="regular-16 primary ">De mayor a menor</span>
+        <mat-icon *ngIf="des" class="products__icon">check</mat-icon>
+    </div>
+</div>

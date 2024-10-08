@@ -1,0 +1,87 @@
+.featureProducts {
+    &__main {
+        position: relative;
+    }
+
+    &__wrapperItem {
+        height: 255px;
+        width: 240px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+        margin-right: 10px;
+    }
+
+    &__itemSlick {
+        height: 100%;
+        width: 100%;
+        box-shadow: 0 0 6px #00000029;
+        border-radius: 8px;
+    }
+
+    &__containImgSlick {
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__img {
+        width: auto;
+        height: 90%;
+    }
+
+    &__infoSlick {
+        height: 95px;
+        background-color: var(--ngx-valepro-color-primary);
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 12px;
+        padding-right: 12px;
+        color: white;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+
+    &__pointsCart {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    &__cart {
+        align-items: center;
+        background-color: var(--ngx-valepro-color-tertiary);
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        height: 40px;
+        justify-content: center;
+        width: 40px;
+    }
+
+    &__iconCart {
+        font-size: 22px;
+        height: 22px;
+        width: 22px;
+        color: var(--ngx-valepro-color-secondary);
+    }
+
+    &__transparent {
+        position: absolute;
+        z-index: 2;
+        right: -1px;
+        top: 0;
+        height: 275px;
+        width: 80px;
+        background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+        border: none
+    }
+
+    &__spacePoints{
+        margin-left: 3px;
+    }
+}

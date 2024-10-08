@@ -1,0 +1,49 @@
+
+<div class="servicePublicConfirMain">
+    <div class="servicePublicConfirm">
+        <span class="bold-24 primary servicePublicConfirm__title">Realiza aquí tus pagos de servicios públicos y privados</span>
+        <div class="servicePublicConfirm__text1">
+            <span class="bold-16 primary">Servicios</span>
+        </div>
+        <div class="servicePublicConfirm__containBussines">
+            <span class="bold-12 servicePublicConfirm__textBussines">Empresa o servicio</span>
+            <span class="regular-16 primary">{{paymentConfirm.ShortName}}</span>
+        </div>
+        <div class="servicePublicConfirm__containBussines">
+            <span class="bold-12 servicePublicConfirm__textBussines">Referencia de pago</span>
+            <span class="regular-16 primary">{{paymentConfirm.Reference}}</span>
+        </div>
+        <div class="servicePublicConfirm__containCheck">
+            <img height="80" width="80" src="../../../../assets/img/check-circle.svg" alt="check">
+            <span class="bold-24 primary">Pago exitoso</span>
+        </div>
+        <div class="servicePublicConfirm__text1">
+            <span class="bold-16 primary">Servicio: {{paymentConfirm.ShortName}}</span>
+        </div>
+        <div class="servicePublicConfirm__containInfo servicePublicConfirm__containInfo--background">
+            <span class="regular-16 primary">Número de pedido</span> 
+            <span class="regular-16 primary">{{ paymentConfirm.OrderId}}</span>
+        </div>
+        <div class="servicePublicConfirm__containInfo">
+            <span class="regular-16 primary">Número de transacción</span> 
+            <span class="regular-16 primary">{{ paymentConfirm.TransactionId  }}</span>
+        </div>
+        <div class="servicePublicConfirm__containInfo servicePublicConfirm__containInfo--background">
+            <span class="regular-16 primary">Valor pagado</span> 
+            <span class="regular-16 primary">${{ paymentConfirm.PaidValue  | number:'1.0-0'}}</span>
+        </div>
+        <div class="servicePublicConfirm__containInfo">
+            <span class="regular-16 primary">Puntos redimidos</span> 
+            <span class="regular-16 primary">{{ paymentConfirm.PointsRedeemed | number:'1.0-0' }}</span>
+        </div>
+        <div class="servicePublicConfirm__containInfo servicePublicConfirm__containInfo--background">
+            <span class="regular-16 primary">Saldo de puntos</span> 
+            <span class="bold-16 primary">{{ paymentConfirm.PointsBalance | number:'1.0-0' }}</span>
+        </div>
+        <div class="servicePublicConfirm__containBtn">
+            <div class="servicePublicConfirm__btnContinue" (click)="onSendChange()">
+                <span class="bold-16 primary">Ver catálogo</span>
+            </div>
+        </div>
+    </div>
+</div>

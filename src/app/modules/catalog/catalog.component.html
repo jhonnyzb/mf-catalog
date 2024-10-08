@@ -1,0 +1,92 @@
+<div class="products">
+  <div class="buttonBarHeader">
+    <span class="bold-16 primary">Todos los productos</span>
+  </div>
+  <div class="products__content">
+    <div class="products__filters">
+
+      <app-filter-catalog></app-filter-catalog>
+
+      <div class="products__btnFiltersMobile">
+        <div class="products__btnFilter products__btnFilter--width1 products__btnFilter--space"
+          (click)="onFiltersCategory(true)">
+          <span class="bold-16 primary">Filtrar</span>
+          <mat-icon class="products__btnFiltersMobile-icon" fontSet="material-icons-outlined">filter_alt</mat-icon>
+        </div>
+        <div class="products__btnFilter products__btnFilter--width1" (click)="onFiltersOrder(true)">
+          <span class="bold-16 primary">Ordenar</span>
+          <mat-icon class="products__btnFiltersMobile-icon">filter_list</mat-icon>
+        </div>
+      </div>
+
+      <div class="products__filtersDesktop products__filtersDesktop--height1">
+        <app-filter-order [platform]="platformDesktop"></app-filter-order>
+      </div>
+      <div class="products__filtersDesktop">
+        <app-filter-category [minimun]="minimun" [maximun]="maximun" (vMinimun)="onMinimun($event)"
+          (vMaximun)="onMaximun($event)" [platform]="platformDesktop">
+        </app-filter-category>
+      </div>
+
+    </div>
+
+    <div class="products__information">
+      <app-products [products]="products"></app-products>
+      <div class="products__containPaginate">
+        <span class="regular-16 primary products__textResult">Mostrando {{ elementsPage }} de {{ totalElements }}
+          resultados</span>
+        <div class="products__paginate">
+          <app-paginate [paginate]="paginate" (pageCurrent)="onChangePage($event)"></app-paginate>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal filtro orden mobiles -->
+  <div *ngIf="isfiltersOrders" class="products__overlay">
+    <div class="products__modal">
+      <div class="products__containModal">
+        <div class="products__containOrdersfilter">
+          <div class="products__close" (click)="onFiltersOrder(false)">
+            <mat-icon class="products__icon--size">close</mat-icon>
+          </div>
+          <div class="products__containOrders">
+            <div class="products__ordersMobile products__ordersMobile--height">
+              <app-filter-order [platform]="platformMobile"></app-filter-order>
+            </div>
+          </div>
+        </div>
+        <div class="products__btnOrdersSend">
+          <div class="products__btnFilter products__btnFilter--width2" (click)="onChangeOrder()">
+            <span class="bold-16 primary">Cambiar orden</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal filtro categorias mobiles -->
+  <div *ngIf="isfiltersCategory" class="products__overlay">
+    <div class="products__modal">
+      <div class="products__containModal">
+        <div class="products__containOrdersfilter">
+          <div class="products__close" (click)="onFiltersCategory(false)">
+            <mat-icon class="products__icon--size">close</mat-icon>
+          </div>
+          <div class="products__containOrders">
+            <div class="products__ordersMobile">
+              <app-filter-category [minimun]="minimun" [maximun]="maximun" (vMinimun)="onMinimun($event)"
+                (vMaximun)="onMaximun($event)" [platform]="platformMobile">
+              </app-filter-category>
+            </div>
+          </div>
+        </div><br>
+        <div class="products__btnOrdersSend">
+          <div class="products__btnFilter products__btnFilter--width2" (click)="onChangeMaxMin()">
+            <span class="bold-16 primary">Filtrar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

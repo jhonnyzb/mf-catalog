@@ -1,0 +1,88 @@
+.servicePublicConfirMain {
+    display: flex;
+    justify-content: center;
+}
+
+.servicePublicConfirm {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 6px #00000029;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 518px;
+    margin-bottom: 16px;
+
+    &__title {
+        text-align: center;
+    }
+
+    &__containBussines {
+        display: flex;
+        flex-direction: column;
+        height: 50px;
+        justify-content: space-evenly;
+        border-bottom: 1px solid #1A0C3F66 ;
+        margin-bottom: 5px;
+    }
+
+    &__textBussines {
+        color: #1A0C3F66;
+    }
+
+    &__text1 {
+        margin-top: 32px;
+        margin-bottom: 16px;
+    }
+
+    &__containCheck {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 32px;
+    }
+
+    &__containInfo {
+        height: 36px;
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+        align-items: center;
+
+        &--background {
+            background-color: #F4F4F4;
+        }
+    }
+
+    &__containBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 42px;
+    }
+
+    &__btnContinue {
+        width: 260px;
+        height: 44px;
+        border-radius: 22px;
+        background-color: var(--ngx-valepro-color-tertiary);
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
+@media screen and (min-width: 1024px) {
+    .servicePublicConfirm {
+       max-width: 588px;
+       padding-left: 48px;
+       padding-right: 48px;
+    
+    }
+
+
+}

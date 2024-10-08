@@ -1,0 +1,28 @@
+<div class="servicePublic">
+    <div class="servicePublic__containImg">
+        <img class="servicePublic__imgBig" [src]="imgSelect" (error)="onImageError()" alt="premio">
+        <div class="servicePublic__containImgSmall">
+            <div *ngFor="let item of listImgSmall" class="servicePublic__itemImgSmall"
+                [ngClass]="{'servicePublic__itemImgSmall--select': item.active, 'servicePublic__itemImgSmall--overlay': !item.active }"
+                (click)="onChangeImage(item)">
+                <img class="servicePublic__imgSmall" (error)="onImageErrorSmall(item)" [src]="item.patch" alt="premio">
+            </div>
+        </div>
+    </div>
+    <div class="servicePublic__separator"></div>
+    <div class="servicePublic__containInfo">
+        <span class="bold-24 primary">{{ name }}</span>
+        <div style="position: relative;">
+            <mat-form-field class="servicePublic__inputReference">
+                <mat-label class="regular-16" [ngStyle]="{'color': isError ? 'red' : 'initial'}">Referencia de pago</mat-label>
+                <input matInput [(ngModel)]="reference" (ngModelChange)="onInputChange()"  (keypress)="validateInput($event)">
+            </mat-form-field>
+            <span *ngIf="isError" class="servicePublic__error regular-12">* Campo obligatorio o inválido</span>
+        </div>
+        <div class="servicePublic__containBtn">
+            <div class="servicePublic__btnContinue" (click)="onSendChange()">
+                <span class="bold-16 primary">Consultar</span>
+            </div>
+        </div>
+    </div>
+</div>

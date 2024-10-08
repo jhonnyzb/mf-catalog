@@ -1,0 +1,9 @@
+<div *ngIf="show" class="toast">
+    <div class="toast__container">
+      <div class="toast__check">
+        <mat-icon>check_circle_outline_icon</mat-icon>
+        <span class="regular-16 ">Datos confirmados con éxito.</span>
+      </div>
+      <mat-icon (click)="onClose()">close</mat-icon>
+    </div>
+</div>

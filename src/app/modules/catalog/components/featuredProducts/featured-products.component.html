@@ -1,0 +1,25 @@
+<div class="featureProducts__main">
+    <div *ngIf="slides.length > 0" class="featureProducts__transparent">
+    </div>
+    <ngx-slick-carousel [config]="config" class="swiper">
+        <div class="featureProducts__wrapperItem" ngxSlickItem *ngFor="let item of slides">
+            <div class="featureProducts__itemSlick">
+                <div class="featureProducts__containImgSlick" (click)="goToDetail(item.AwardId)">
+                    <img class="featureProducts__img" (error)="onImageError(item)" [src]=item.ImageUrl alt="premio">
+                </div>
+                <div class="featureProducts__infoSlick">
+                    <span class="bold-12 primary">{{item.Name}}</span>
+                    <div class="featureProducts__pointsCart">
+                        <div class="featureProducts__points">
+                            <span class="regular-16 primary">{{ item.Points | number:'1.0-0' }}</span><span
+                                class="regular-12 featureProducts__spacePoints primary">Puntos</span>
+                        </div>
+                        <div class="featureProducts__cart" (click)="onClikcCart(item.AwardId)">
+                            <mat-icon class="featureProducts__iconCart">shopping_cart</mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ngx-slick-carousel>
+</div>
